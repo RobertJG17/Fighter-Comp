@@ -1,6 +1,7 @@
 from event import DataBase
 from flask import Flask
 import pandas as pd
+import json
 
 app = Flask(__name__)
 
@@ -10,11 +11,11 @@ def get_fighters():
     db = DataBase()
     db.get_engine()
 
-    postgres_fighter_table = db.queryHandler('fighters')
+    postgres_fighter_table = pd.DataFrame(db.queryHandler('fighters'))
 
-    df = pd.DataFrame.from_records(postgres_fighter_table)
+    print(postgres_fighter_table)
 
-    return 'information successfully created as DataFrame'
+    return 'done'
 
 
 @app.route('/all')
@@ -22,11 +23,10 @@ def get_all():
     db = DataBase()
     db.get_engine()
 
-    postgres_fighter_table = db.queryHandler('all')
+    query = db.queryHandler('all')
+    postgres_fighter_table = pd.DataFrame(data=query.fetchall(), columns=query.keys())
 
-    df = pd.DataFrame.from_records(postgres_fighter_table)
-
-    return 'information successfully created as DataFrame'
+    return postgres_fighter_table.transpose().to_json()
 
 
 

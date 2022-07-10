@@ -1,4 +1,3 @@
-from pyparsing import col
 import sqlalchemy
 import pg8000
 from google.cloud.sql.connector import Connector
@@ -38,16 +37,18 @@ class DataBase:
 
     # DEF MAIN QUERIES
     def allFighters(self, db_conn):
-        return db_conn.execute(f'''SELECT fighter FROM fighters ORDER BY fighter''').fetchall()
+        return db_conn.execute(f'''SELECT fighter FROM fighters ORDER BY fighter''')
 
     def allStyles(self, db_conn):
-        return db_conn.execute(f'''SELECT DISTINCT(style) col FROM fighters ORDER BY col''').fetchall()
+        return db_conn.execute(f'''SELECT DISTINCT(style) col FROM fighters ORDER BY col''')
 
     def allGyms(self, db_conn):
-        return db_conn.execute(f'''SELECT DISTINCT("trains-at") col FROM fighters ORDER BY col''').fetchall()
+        return db_conn.execute(f'''SELECT DISTINCT("trains-at") col FROM fighters ORDER BY col''')
     
     def all(self, db_conn):
-        return db_conn.execute(f'''SELECT * FROM fighters''').fetchall()
+        return db_conn.execute(f'''SELECT * FROM fighters''')
+
+ 
     
 
 
