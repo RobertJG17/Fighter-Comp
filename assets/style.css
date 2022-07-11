@@ -1,0 +1,76 @@
+h1 {
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: lighter;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
+.card {
+    box-shadow: 0 0 0 0;
+    transition: 0.3s;
+    width: 18rem;
+    height: 36rem;
+    margin-top: 2rem;
+    margin: 1rem;
+    border-radius: 1rem;
+    border-width: 2px;
+    border-color: white;
+}
+
+.card-stack {
+    display: grid;
+    width: 100%;
+    padding-top: 0.5rem;
+    grid-gap: 0.25rem;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.card-body {
+    text-align: center;
+    font-size: 1rem;
+    padding-top: 15rem
+}
+
+.fighter-href {
+    padding-top: 2rem;
+    height:40%;
+}
+
+.dropdown {
+    color: white;
+    background-color: black;
+    width: 100%;
+    padding: 1rem;
+}
+
+.Select-input>input{
+    color: white;
+}
+
+.Select-control, .Select-multi-value-wrapper, .Select-menu, .Select-menu-outer, .Select-arrow-zone{
+    border-radius: 1px;
+    background-color: black;
+    color: white;
+}
+  
+.card:hover {
+    box-shadow: 6px 6px 1px 1px;
+    margin: 1.2rem;
+}
+
+.card-header {
+    text-align: center;
+    border-radius: 1rem;
+}
+
+.main-svg {
+    background: black;
+}
+
+.graph { 
+    background-color: black;
+
+}
+
+

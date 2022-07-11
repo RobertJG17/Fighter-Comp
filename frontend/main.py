@@ -1,6 +1,6 @@
 from layout import layout
-from dash import dcc, html
 from app import app
+import callbacks
 
 
 app.layout = layout

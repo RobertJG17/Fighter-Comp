@@ -37,7 +37,7 @@ class DataBase:
 
     # DEF MAIN QUERIES
     def allFighters(self, db_conn):
-        return db_conn.execute(f'''SELECT fighter FROM fighters ORDER BY fighter''')
+        return db_conn.execute(f'''SELECT fighter, href FROM fighters ORDER BY fighter''')
 
     def allStyles(self, db_conn):
         return db_conn.execute(f'''SELECT DISTINCT(style) col FROM fighters ORDER BY col''')

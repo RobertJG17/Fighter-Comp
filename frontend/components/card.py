@@ -1,46 +1,32 @@
 from dash import dcc, html
 import dash_bootstrap_components as dbc
 
-def create_card(fighter_href, name):
-    return dbc.Card(
-        [
-            dbc.CardBody(
-                [
-                    html.Div(
-                        [
-                            dbc.CardImgOverlay(
-                                children=[
-                                    html.Img(
-                                        src=f"{fighter_href}",
-                                        className="fighter-href",
-                                        style={
-                                            # "opacity": ".4",
-                                            "z-index": "1",
-                                            "position": "relative",
-                                            "padding-bottom":"10px"
-                                        }
-                                    )
-                                ],
-                            ),
+def create_card(fighter_href, name, height, age, hometown, style, trains_at, weight_class):
+    return dbc.Card([
+            dbc.CardImgOverlay(
+                children=[
+                    html.Img(
+                        src=f"{fighter_href}",
+                        className="fighter-href",
+                    )
+                ],
+            ),
 
-                            html.H4(
-                                name,
-                                className="card-title",
-                                style=dict(
-                                    display="inline-table",
-                                    color="black",
-                                    font="30px",
-                                    zIndex = "1",
-                                    position = "relative"
-                                )
-                            )
-                        ],
-
-                        className="title-date",
-                    ),
-
-                ]
-            )
+            dbc.CardHeader(children=[name], className='card-header'),
+            dbc.CardBody([
+                html.H6('Weight Class: {}'.format(weight_class)),
+                html.Hr(),
+                html.H6('Hometown: {}'.format(hometown)),
+                html.Hr(),
+                html.H6('Trains At: {}'.format(trains_at)),
+                html.Hr(),
+                html.H6('Style: {}'.format(style)),
+                html.Hr(),
+                html.H6('Height: {}'.format(height)),
+                html.Hr(),
+                html.H6('Age: {}'.format(age))
+            ], className="card-body")
         ],
-        className='fighter-card'
+
+        className='card'
     )
