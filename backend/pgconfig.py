@@ -1,10 +1,10 @@
 import pg8000
 import os
-
 from google.cloud.sql.connector import Connector
 from google.oauth2 import service_account
 from dotenv import load_dotenv
 from os.path import join, dirname
+
 
 # connect_with_connector initializes a connection pool for a
 # Cloud SQL instance of Postgres using the Cloud SQL Python Connector.
@@ -20,9 +20,6 @@ db_port = os.environ.get('PORT')
 cloud_sql_connection_name = os.environ.get('CLOUD_SQL_CONNECTION_NAME')
 
 SERVICE_ACCT_CREDENTIALS = service_account.Credentials.from_service_account_file('../service-acct.json')
-
-for item in [pg_driver, db_user, db_pass, db_name, db_port, cloud_sql_connection_name]:
-    print(item, '\n')
 
 def getconn():
     with Connector(enable_iam_auth=True, credentials=SERVICE_ACCT_CREDENTIALS) as connector:
