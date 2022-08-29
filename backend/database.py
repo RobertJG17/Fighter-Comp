@@ -45,8 +45,3 @@ class DataBase:
     
     def all(self, db_conn):
         return db_conn.execute(f'''SELECT * FROM fighters;''')
-
- 
-    
-
-

@@ -32,8 +32,3 @@ def getconn():
         )
 
     return conn
-
-
-
-
-
